@@ -185,7 +185,7 @@ function animateCounters() {
 // CTA Button functionality
 const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
 ctaButtons[0].addEventListener('click', () => {
-    alert('Terima kasih telah tertarik! Silakan isi form kontak di bawah untuk memulai kerjasama.');
+    alert('Terima kasih! Tim InnovaTech akan membantu Anda. Silakan isi form kontak di bawah untuk memulai.');
     document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -236,4 +236,4 @@ document.querySelectorAll('.service-card, .feature-item').forEach(card => {
     });
 });
 
-console.log('Landing page loaded successfully!');
+console.log('InnovaTech landing page loaded successfully!');
