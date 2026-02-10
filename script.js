@@ -1,26 +1,33 @@
 // Hamburger Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+let menuOpen = false;
 
 hamburger.addEventListener('click', () => {
-    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    navMenu.style.position = 'absolute';
-    navMenu.style.top = '60px';
-    navMenu.style.left = '0';
-    navMenu.style.right = '0';
-    navMenu.style.flexDirection = 'column';
-    navMenu.style.background = 'white';
-    navMenu.style.padding = '20px';
-    navMenu.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    navMenu.style.gap = '0';
+    menuOpen = !menuOpen;
+    hamburger.classList.toggle('active');
+    
+    if (menuOpen) {
+        navMenu.classList.add('active');
+        navMenu.style.display = 'flex';
+        navMenu.style.position = 'absolute';
+        navMenu.style.top = '60px';
+        navMenu.style.left = '0';
+        navMenu.style.right = '0';
+        navMenu.style.flexDirection = 'column';
+        navMenu.style.background = 'white';
+        navMenu.style.padding = '20px';
+        navMenu.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        navMenu.style.gap = '0';
+        navMenu.style.zIndex = '999';
+    } else {
+        navMenu.classList.remove('active');
+        navMenu.style.display = 'none';
+    }
 });
 
-// Close menu when link is clicked
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.style.display = 'none';
-    });
-});
+// Keep menu open - removed auto-close functionality
+// Users can now navigate without menu disappearing
 
 // Smooth Scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
